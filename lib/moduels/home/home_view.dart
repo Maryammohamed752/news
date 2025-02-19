@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_two/core/extensions/padding_ext.dart';
 import 'package:news_app_two/moduels/home/category_details/category_datails.dart';
+import 'package:news_app_two/moduels/home/category_details/category_fragment.dart';
 import 'package:news_app_two/theme/app_theme.dart';
 import 'package:news_app_two/theme/color_palette.dart';
 import 'package:news_app_two/widgets/drawer_widget.dart';
@@ -20,7 +21,7 @@ class HomeView extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: CategoryDatails(),
+      body: CategoryFragment(),
     );
 
     void onDrawerItemClicked(selectedCatogry) {
