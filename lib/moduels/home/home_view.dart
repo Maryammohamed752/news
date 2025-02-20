@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:news_app_two/core/extensions/padding_ext.dart';
+//import 'package:news_app_two/moduels/home/drawer/drawer_widget.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:news_app_two/model/category_model.dart';
 import 'package:news_app_two/moduels/home/category_details/category_details.dart';
 import 'package:news_app_two/moduels/home/category_details/category_fragment.dart';
-import 'package:news_app_two/theme/app_theme.dart';
 import 'package:news_app_two/theme/color_palette.dart';
-import 'package:news_app_two/moduels/home/drawer/drawer_widget.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'drawer/home_drawer.dart';
 

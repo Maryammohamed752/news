@@ -1,9 +1,5 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:news_app_two/core/constants/app_assets.dart';
-import 'package:news_app_two/core/routes/pages_route_name.dart';
-import 'package:news_app_two/main.dart';
 
 class SplashView extends StatefulWidget {
   static const String routeName = 'splash_view';

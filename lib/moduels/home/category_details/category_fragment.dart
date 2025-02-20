@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:news_app_two/model/category_model.dart';
+import 'package:news_app_two/providers/app_theme_provider.dart';
 import 'package:news_app_two/theme/color_palette.dart';
+import 'package:provider/provider.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 class CategoryFragment extends StatelessWidget {
-  var categoriesList = CategoryModel.getCategoriesList();
+  List<CategoryModel> categoriesList = [];
+
+  //var categoriesList=CategoryModel.getCategoriesList();
+
   Function onViewAllClicked;
 
   CategoryFragment({required this.onViewAllClicked});
+
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppThemeProvider>(context);
+    categoriesList = CategoryModel.getCategoriesList(provider.isDarkMode());
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Padding(
@@ -29,11 +37,11 @@ class CategoryFragment extends StatelessWidget {
           ),
           Expanded(
               child: ListView.separated(
-                separatorBuilder: (context, index) {
-                  return SizedBox(
-                    height: height * 0.02,
-                  );
-                },
+            separatorBuilder: (context, index) {
+              return SizedBox(
+                height: height * 0.02,
+              );
+            },
             itemBuilder: (context, index) {
               return Stack(
                 alignment: index % 2 == 0
@@ -45,7 +53,8 @@ class CategoryFragment extends StatelessWidget {
                     child: Image.asset(categoriesList[index].imagePath),
                   ),
                   Container(
-                    margin: EdgeInsets.only(bottom: height * 0.02,
+                    margin: EdgeInsets.only(
+                        bottom: height * 0.02,
                         right: width * 0.01,
                         left: width * 0.01),
                     child: ToggleSwitch(
@@ -62,19 +71,19 @@ class CategoryFragment extends StatelessWidget {
                       initialLabelIndex: 1,
                       totalSwitches: 2,
                       customWidgets: [
-                        Text(
-                          AppLocalizations.of(context)!.view_all,
-                          style: Theme.of(context).toggleButtonsTheme.textStyle
+                        Text(AppLocalizations.of(context)!.view_all,
+                            style:
+                                Theme.of(context).toggleButtonsTheme.textStyle
                             /*.textTheme
                               .headlineLarge,*/
                             ),
                         CircleAvatar(
-                          backgroundColor: Theme
-                              .of(context)
-                              .primaryColor,
-                          radius: 60, child: Icon(
+                          backgroundColor: Theme.of(context).primaryColor,
+                          radius: 60,
+                          child: Icon(
                               color: Theme.of(context).iconTheme.color,
-                              Icons.arrow_forward_ios_outlined),)
+                              Icons.arrow_forward_ios_outlined),
+                        )
                       ],
                       radiusStyle: true,
                       onToggle: (index1) {
@@ -86,7 +95,7 @@ class CategoryFragment extends StatelessWidget {
                 ],
               );
             },
-                itemCount: categoriesList.length,
+            itemCount: categoriesList.length,
           ))
         ],
       ),

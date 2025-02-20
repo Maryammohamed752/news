@@ -10,4 +10,8 @@ class AppThemeProvider extends ChangeNotifier {
     appTheme = newTheme;
     notifyListeners();
   }
+
+  bool isDarkMode() {
+    return appTheme == ThemeMode.dark;
+  }
 }
