@@ -7,34 +7,48 @@ class CategoryModel {
   CategoryModel(
       {required this.id, required this.title, required this.imagePath});
 
-  static List<CategoryModel> getCategoriesList() {
+  static List<CategoryModel> getCategoriesList(bool isDark) {
     return [
       CategoryModel(
-          id: 'sports', title: 'Sports', imagePath: AppAssets.sportsLightImage),
+          id: 'sports',
+          title: 'Sports',
+          imagePath:
+              isDark ? AppAssets.sportsLightImage : AppAssets.sportsDarkImage),
       CategoryModel(
           id: 'business',
           title: 'Business',
-          imagePath: AppAssets.businessLightImage),
+          imagePath: isDark
+              ? AppAssets.businessLightImage
+              : AppAssets.businessDarkImage),
       CategoryModel(
           id: 'entertainment',
           title: 'Entertainment',
-          imagePath: AppAssets.entertainmentLightImage),
-
+          imagePath: isDark
+              ? AppAssets.entertainmentLightImage
+              : AppAssets.entertainmentDarkImage),
       CategoryModel(
-          id: 'health', title: 'Health', imagePath: AppAssets.healthLightImage),
+          id: 'health',
+          title: 'Health',
+          imagePath:
+              isDark ? AppAssets.healthLightImage : AppAssets.healthDarkImage),
       CategoryModel(
           id: 'general',
           title: 'General',
-          imagePath: AppAssets.generalLightImage),
+          imagePath: isDark
+              ? AppAssets.generalLightImage
+              : AppAssets.generalDarkImage),
       CategoryModel(
           id: 'technology',
           title: 'Technology',
-          imagePath: AppAssets.technologyLightImage),
+          imagePath: isDark
+              ? AppAssets.technologyLightImage
+              : AppAssets.technologyDarkImage),
       CategoryModel(
           id: 'science',
           title: 'Science',
-          imagePath: AppAssets.scienceLightImage),
+          imagePath: isDark
+              ? AppAssets.scienceLightImage
+              : AppAssets.scienceDarkImage),
     ];
   }
 }
-
