@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:news_app_two/core/routes/app_routes.dart';
-import 'package:news_app_two/moduels/home/category_details/category_datails.dart';
 import 'package:news_app_two/moduels/home/home_view.dart';
 import 'package:news_app_two/moduels/splash/splash_view.dart';
 import 'package:news_app_two/providers/app_language_provider.dart';
 import 'package:news_app_two/providers/app_theme_provider.dart';
 import 'package:news_app_two/theme/app_theme.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
@@ -33,11 +32,10 @@ class MyApp extends StatelessWidget {
       initialRoute: SplashView.routeName,
       routes: {
         HomeView.routeName: (context) => HomeView(),
-        CategoryDatails.routeName: (context) => CategoryDatails(),
       },
       navigatorKey: navigatorKey,
       onGenerateRoute: AppRoutes.onGeneratedRoute,
-      theme: AppTheme.darkTheme,
+      theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: themeProvider.appTheme,
       locale: Locale(languageProvider.appLanguage),

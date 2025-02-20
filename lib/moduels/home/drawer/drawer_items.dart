@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_two/core/constants/app_style.dart';
 import 'package:news_app_two/core/extensions/extensions.dart';
-import 'package:news_app_two/theme/color_palette.dart';
 import 'package:news_app_two/core/extensions/padding_ext.dart';
+import 'package:news_app_two/theme/color_palette.dart';
 
 class DrawerItems extends StatelessWidget {
   String text;

@@ -6,6 +6,9 @@ import 'package:toggle_switch/toggle_switch.dart';
 
 class CategoryFragment extends StatelessWidget {
   var categoriesList = CategoryModel.getCategoriesList();
+  Function onViewAllClicked;
+
+  CategoryFragment({required this.onViewAllClicked});
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -61,22 +64,22 @@ class CategoryFragment extends StatelessWidget {
                       customWidgets: [
                         Text(
                           AppLocalizations.of(context)!.view_all,
-                          style: Theme
-                              .of(context)
-                              .textTheme
-                              .headlineLarge,
-                        ),
+                          style: Theme.of(context).toggleButtonsTheme.textStyle
+                            /*.textTheme
+                              .headlineLarge,*/
+                            ),
                         CircleAvatar(
                           backgroundColor: Theme
                               .of(context)
                               .primaryColor,
                           radius: 60, child: Icon(
-                            color: ColorPalette.primaryColor,
-                            Icons.arrow_forward_ios_outlined),)
+                              color: Theme.of(context).iconTheme.color,
+                              Icons.arrow_forward_ios_outlined),)
                       ],
                       radiusStyle: true,
-                      onToggle: (index) {
+                      onToggle: (index1) {
                         print('switched to: $index');
+                        onViewAllClicked(categoriesList[index]);
                       },
                     ),
                   ),

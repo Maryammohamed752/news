@@ -1,4 +1,5 @@
 import 'dart:ui';
+
 import 'package:flutter/src/painting/text_style.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -9,6 +10,11 @@ class AppStyles {
     fontSize: 20,
     fontWeight: FontWeight.bold,
     color: ColorPalette.primaryColor,
+  );
+  static TextStyle bold24Black = GoogleFonts.inter(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+    color: ColorPalette.blackColor,
   );
   static TextStyle bold16Primary = GoogleFonts.inter(
     fontSize: 16,

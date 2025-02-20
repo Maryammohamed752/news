@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:news_app_two/core/constants/app_style.dart';
-import 'package:news_app_two/core/extensions/padding_ext.dart';
 import 'package:news_app_two/providers/app_language_provider.dart';
+import 'package:news_app_two/theme/color_palette.dart';
 import 'package:provider/provider.dart';
 
 class LanguageBottomSheet extends StatefulWidget {
@@ -58,6 +58,7 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
         Icon(
           Icons.check,
           size: 25,
+          color: ColorPalette.blackColor,
         )
       ],
     );
