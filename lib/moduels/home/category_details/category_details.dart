@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_two/api/api_manager.dart';
 import 'package:news_app_two/model/SourceResponse.dart';
+import 'package:news_app_two/model/category_model.dart';
 import 'package:news_app_two/moduels/home/category_details/source_tab_widget.dart';
 import 'package:news_app_two/theme/color_palette.dart';
 
-class CategoryDatails extends StatefulWidget {
+class CategoryDetails extends StatefulWidget {
   static const String routeName = 'category_details';
+  CategoryModel category;
 
-  const CategoryDatails({super.key});
+  CategoryDetails({required this.category});
 
   @override
-  State<CategoryDatails> createState() => _CategoryDatailsState();
+  State<CategoryDetails> createState() => _CategoryDetailsState();
 }
 
-class _CategoryDatailsState extends State<CategoryDatails> {
+class _CategoryDetailsState extends State<CategoryDetails> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<SourceResponse?>(
-      future: ApiManager.getSources(),
+      future: ApiManager.getSources(widget.category.id),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(
@@ -29,7 +31,7 @@ class _CategoryDatailsState extends State<CategoryDatails> {
               const Text('Something Went Wrong'),
               ElevatedButton(
                   onPressed: () {
-                    ApiManager.getSources();
+                    ApiManager.getSources(widget.category.id);
                     setState(() {});
                   },
                   child: Text('Try again'))
@@ -42,7 +44,7 @@ class _CategoryDatailsState extends State<CategoryDatails> {
               Text(snapshot.data!.message!),
               ElevatedButton(
                   onPressed: () {
-                    ApiManager.getSources();
+                    ApiManager.getSources(widget.category.id);
                     setState(() {});
                   },
                   child: Text('Try again'))

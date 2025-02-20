@@ -5,28 +5,29 @@ import 'package:news_app_two/providers/app_language_provider.dart';
 import 'package:news_app_two/providers/app_theme_provider.dart';
 
 import 'package:news_app_two/theme/color_palette.dart';
-import 'package:news_app_two/widgets/drawer_items.dart';
+import 'package:news_app_two/moduels/home/drawer/drawer_items.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:news_app_two/widgets/language_bottom_sheet.dart';
 import 'package:news_app_two/widgets/theme_bottom_sheet.dart';
 import 'package:provider/provider.dart';
 
-class DrawerWidget extends StatefulWidget {
+class HomeDrawer extends StatefulWidget {
   Function onDrawerItemClicked;
 
-  DrawerWidget({required this.onDrawerItemClicked});
+  HomeDrawer({required this.onDrawerItemClicked});
 
   @override
-  State<DrawerWidget> createState() => _DrawerWidgetState();
+  State<HomeDrawer> createState() => _HomeDrawerState();
 }
 
-class _DrawerWidgetState extends State<DrawerWidget> {
+class _HomeDrawerState extends State<HomeDrawer> {
   @override
   Widget build(BuildContext context) {
     var languageProvider = Provider.of<AppLanguageProvider>(context);
     var themeProvider = Provider.of<AppThemeProvider>(context);
     var mediaQuery = MediaQuery.of(context);
     return Container(
+      alignment: Alignment.center,
       width: mediaQuery.size.width * 0.65,
       decoration: BoxDecoration(
         color: Colors.black,
@@ -34,13 +35,16 @@ class _DrawerWidgetState extends State<DrawerWidget> {
       child: Column(
         children: [
           Container(
-            alignment: Alignment.center,
-            height: mediaQuery.size.height * 0.25,
-            decoration: BoxDecoration(color: Colors.white),
-          ),
+              alignment: Alignment.center,
+              height: mediaQuery.size.height * 0.25,
+              decoration: BoxDecoration(color: Colors.white),
+              child: Text(
+                AppLocalizations.of(context)!.news_app,
+                style: AppStyles.bold24Black,
+              )),
           InkWell(
             onTap: () {
-              widget.onDrawerItemClicked;
+              widget.onDrawerItemClicked();
             },
             child: DrawerItems(
                 imagePath: AppAssets.homeIcon,

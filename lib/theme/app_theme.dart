@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_two/core/constants/app_style.dart';
 import 'package:news_app_two/theme/color_palette.dart';
-import 'package:news_app_two/widgets/drawer_widget.dart';
 
 class AppTheme {
   static final ThemeData lightTheme = ThemeData(
+      iconTheme: IconThemeData(color: ColorPalette.blackColor),
+      toggleButtonsTheme: ToggleButtonsThemeData(
+        textStyle: AppStyles.bold16Black,
+      ),
       indicatorColor: ColorPalette.blackColor,
       scaffoldBackgroundColor: ColorPalette.primaryColor,
       primaryColor: ColorPalette.primaryColor,
@@ -15,6 +18,9 @@ class AppTheme {
           headlineLarge: AppStyles.bold16Black,
           headlineMedium: AppStyles.medium14Black));
   static final ThemeData darkTheme = ThemeData(
+      iconTheme: IconThemeData(color: ColorPalette.primaryColor),
+      toggleButtonsTheme:
+          ToggleButtonsThemeData(textStyle: AppStyles.bold16Primary),
       indicatorColor: ColorPalette.primaryColor,
       scaffoldBackgroundColor: ColorPalette.blackColor,
       primaryColor: ColorPalette.blackColor,
