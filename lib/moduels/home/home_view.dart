@@ -4,7 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:news_app_two/model/category_model.dart';
 import 'package:news_app_two/moduels/home/category_details/category_details.dart';
 import 'package:news_app_two/moduels/home/category_details/category_fragment.dart';
-import 'package:news_app_two/theme/color_palette.dart';
+import 'package:news_app_two/moduels/search/search_view.dart';
 
 import 'drawer/home_drawer.dart';
 
@@ -21,6 +21,17 @@ class _HomeViewState extends State<HomeView> {
     //int selectedCatogery;
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, SearchView.routeName);
+            },
+            icon: const Icon(
+              Icons.search_rounded,
+              size: 30,
+            ),
+          )
+        ],
         title: Text(
           selectedCategory == null
               ? AppLocalizations.of(context)!.home
@@ -30,7 +41,7 @@ class _HomeViewState extends State<HomeView> {
         centerTitle: true,
       ),
       drawer: Drawer(
-        backgroundColor: ColorPalette.blackColor,
+        backgroundColor: Theme.of(context).drawerTheme.backgroundColor,
         child: HomeDrawer(onDrawerItemClicked: onDrawerItemClicked),
       ),
       body: selectedCategory == null
