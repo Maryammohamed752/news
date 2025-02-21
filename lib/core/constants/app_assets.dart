@@ -22,4 +22,5 @@ class AppAssets {
   static const String sportsDarkImage = 'assets/images/sports_dark.png';
   static const String technologyLightImage = 'assets/images/technology.png';
   static const String technologyDarkImage = 'assets/images/technology_dark.png';
+  static const String noSearch = "assets/images/no_search.jpg";
 }

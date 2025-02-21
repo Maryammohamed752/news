@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:news_app_two/core/routes/app_routes.dart';
 import 'package:news_app_two/moduels/home/home_view.dart';
+import 'package:news_app_two/moduels/search/search_view.dart';
 import 'package:news_app_two/moduels/splash/splash_view.dart';
 import 'package:news_app_two/providers/app_language_provider.dart';
 import 'package:news_app_two/providers/app_theme_provider.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
       initialRoute: SplashView.routeName,
       routes: {
         HomeView.routeName: (context) => HomeView(),
+        SearchView.routeName: (context) => SearchView(),
       },
       navigatorKey: navigatorKey,
       onGenerateRoute: AppRoutes.onGeneratedRoute,
