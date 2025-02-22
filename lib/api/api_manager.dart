@@ -40,4 +40,23 @@ class ApiManager {
       throw e;
     }
   }
+
+  static Future<NewsResponse> searchNews(
+      {required String searchQuery, required int pageNumber}) async {
+    Uri url = Uri.https(ApiConstants.baseUrl, ApiConstants.everythingRoute, {
+      'apiKey': ApiConstants.apiKey,
+      'q': searchQuery,
+      'page': pageNumber.toString(),
+      'pageSize': 10
+    });
+    try {
+      var response = await http.get(url,
+          headers: {"Authorization": "Bearer ${ApiConstants.apiKey}"});
+      var responseBody = response.body;
+      var json = jsonDecode(responseBody);
+      return NewsResponse.fromJson(json);
+    } catch (e) {
+      throw e;
+    }
+  }
 }
