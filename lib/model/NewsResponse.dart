@@ -2,13 +2,15 @@ import 'package:news_app_two/model/SourceResponse.dart';
 
 class NewsResponse {
   NewsResponse(
-      {this.status, this.totalResults, this.articles, this.code, this.message});
+      {this.status, this.totalResults, this.code, this.message, this.articles});
 
+  List<News>? get news => articles;
   NewsResponse.fromJson(dynamic json) {
     status = json['status'];
     code = json['code'];
     message = json['message'];
     totalResults = json['totalResults'];
+
     if (json['articles'] != null) {
       articles = [];
       json['articles'].forEach((v) {
