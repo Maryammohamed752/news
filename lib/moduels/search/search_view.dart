@@ -57,7 +57,7 @@ class _SearchViewState extends State<SearchView> {
                   filled: true,
                   fillColor: Theme.of(context).scaffoldBackgroundColor,
                   hintText: AppLocalizations.of(context)!.search,
-                  suffixStyle: Theme.of(context).textTheme.labelMedium,
+                  suffixStyle: TextStyle(color: ColorPalette.greyColor),
                   prefixIcon: Icon(
                     Icons.search,
                     size: 25,
@@ -137,8 +137,7 @@ class _SearchViewState extends State<SearchView> {
       currentPage++;
     } catch (e) {
       errorMessage = e.toString();
-    } finally {
-      setState(() {});
     }
+    setState(() {});
   }
 }

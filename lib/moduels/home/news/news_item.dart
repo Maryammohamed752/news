@@ -104,7 +104,8 @@ void _showNewsDetailsBottomSheet(BuildContext context, News news) {
                   ),
                   Text(
                     news.description ?? "",
-                    style: const TextStyle(color: Colors.black),
+                    style: TextStyle(
+                        color: Colors.grey, fontWeight: FontWeight.w700),
                   ),
                   const SizedBox(
                     height: 8,

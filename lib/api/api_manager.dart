@@ -41,9 +41,11 @@ class ApiManager {
     }
   }
 
-  static Future<NewsResponse> searchNews(
-      {required String searchQuery, required int pageNumber}) async {
-    Uri url = Uri.https(ApiConstants.baseUrl, ApiConstants.everythingRoute, {
+  static Future<NewsResponse> searchNews({required String searchQuery
+    , required int pageNumber}) async {
+    Uri url = Uri.https(ApiConstants.baseUrl,
+        ApiConstants.everythingRoute,
+        {
       'apiKey': ApiConstants.apiKey,
       'q': searchQuery,
       'page': pageNumber.toString(),
